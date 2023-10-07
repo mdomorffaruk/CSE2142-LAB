@@ -27,12 +27,14 @@ public class StudentList {
 			String r = s.readLine();
 			// System.out.println(r);
 			String i[] = r.split(",");
-			System.out.println(i[2]);	
+				
 			Random x = new Random();
-				int y = x.nextInt();
-					System.out.println(i[y]);
+			
+			int y = x.nextInt(4);
+			System.out.println(i[y]);
 
 			} catch (Exception e){} 
+
 			System.out.println("Data Loaded.");			
 		}
 		else if(args[0].contains("+")){
