@@ -2,16 +2,31 @@ import java.io.*;
 import java.text.*;
 import java.util.*;
 public class StudentList {
+
+	public static String bufferReaderFunction(){
+		String singleline = "";
+		try{
+			BufferedReader bufferReader = new BufferedReader(
+				new InputStreamReader(
+					new FileInputStream("students.txt"))); 
+			singleline = bufferReader.readLine();
+		}catch(Exception e){
+			e.printStackTrace();
+			System.out.println(e);
+		}
+		return singleline;
+
+		
+	}
+
 	public static void main(String[] args) {
 
 //		Check arguments
 		if(args[0].equals("a")) {
 			System.out.println("Loading data ...");			
 			try {
-				BufferedReader bufferReader = new BufferedReader(
-						new InputStreamReader(
-								new FileInputStream("students.txt"))); 
-				String singleline = bufferReader.readLine();
+				
+				String singleline = bufferReaderFunction();
 				String arrayOfString[] = singleline.split(",");			
 				for(String singleString : arrayOfString) { 
 					System.out.println(singleString); 
@@ -23,7 +38,7 @@ public class StudentList {
 			System.out.println("Loading data ...");			
 			try {
 				BufferedReader s = new BufferedReader(
-						new InputStreamReader(
+					  	new InputStreamReader(
 								new FileInputStream("students.txt"))); 
 				String r = s.readLine();
 				String i[] = r.split(",");
