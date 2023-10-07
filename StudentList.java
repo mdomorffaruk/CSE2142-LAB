@@ -76,12 +76,15 @@ public class StudentList {
 								new FileInputStream("students.txt"))); 
 				String r = s.readLine();
 				String i[] = r.split(",");	
-				boolean done = false;
+				// boolean done = false;
 				String t = args[0].substring(1);
-				for(int idx = 0; idx<i.length && !done; idx++) {
+				for(int idx = 0; idx<i.length; idx++) {
 					if(i[idx].equals(t)) {
 						System.out.println("We found it!");
-							done=true;
+						break;
+							// done=true;
+					}else{
+						System.out.println("Not found...please try again.. ");
 					}
 				}
 			} catch (Exception e){} 
