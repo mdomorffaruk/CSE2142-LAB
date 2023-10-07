@@ -8,13 +8,13 @@ public class StudentList {
 		if(args[0].equals("a")) {
 			System.out.println("Loading data ...");			
 			try {
-				BufferedReader s = new BufferedReader(
+				BufferedReader bufferReader = new BufferedReader(
 						new InputStreamReader(
 								new FileInputStream("students.txt"))); 
-				String r = s.readLine();
-				String i[] = r.split(",");			
-				for(String j : i) { 
-					System.out.println(j); 
+				String singleline = bufferReader.readLine();
+				String arrayOfString[] = singleline.split(",");			
+				for(String singleString : arrayOfString) { 
+					System.out.println(singleString); 
 				}
 			} catch (Exception e){} 
 			System.out.println("Data Loaded.");
