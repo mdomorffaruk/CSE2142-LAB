@@ -11,5 +11,6 @@ class Constants{
     public static String NOT_FOUND = "Not found...please try again.. ";
     public static String WRONG_ARG_TXT = "Wrong argument, please try again..";
     public static String COUNT_TXT = " word(s) found ";
+    public static String NEW_ARG= "Input new arguments ";
     
 }
