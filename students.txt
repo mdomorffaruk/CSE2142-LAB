@@ -1,3 +1,1 @@
-Student1, Student2, Student3, Student4,
-, Another
-List last updated on 07/54/2023-10:54:21 PM
+Student1, Student2, Student3, Student4
