@@ -16,7 +16,7 @@ public class StudentList {
 			
 			}else{
 				BufferedWriter s = new BufferedWriter(
-						new FileWriter(Constants.FILE_NAME, true));
+						new FileWriter(Constants.FILE_NAME,  true));
 
 				s.write(rw);
 				s.close();
@@ -37,7 +37,7 @@ public class StudentList {
 		if(args[0].equals("a")) {
 			System.out.println(Constants.LOADING_TXT);					
 				String singleline = bufferFunction("r");
-				String arrayOfString[] = singleline.split(",");			
+				String arrayOfString[] = singleline.split(", ");			
 				for(String singleString : arrayOfString) { 
 					System.out.println(singleString); 
 				}
@@ -48,7 +48,7 @@ public class StudentList {
 			System.out.println(Constants.LOADING_TXT);			
 			 
 				String r = bufferFunction("r");
-				String i[] = r.split(",");
+				String i[] = r.split(", ");
 					
 				Random x = new Random();
 				
@@ -74,18 +74,18 @@ public class StudentList {
 			try {
 				 
 				String r = bufferFunction("r");
-				String i[] = r.split(",");	
-				// boolean done = false;
+				String i[] = r.split(", ");	
+				boolean isFound = false;
 				String t = args[0].substring(1);
 				for(int idx = 0; idx<i.length; idx++) {
 					if(i[idx].equals(t)) {
 						System.out.println(Constants.FOUND);
+						isFound=true;
 						break;
-							// done=true;
-					}else{
-						System.out.println(Constants.NOT_FOUND);
 					}
 				}
+				if(!isFound) System.out.println(Constants.NOT_FOUND);
+				
 			} catch (Exception e){} 
 			System.out.println(Constants.AFTER_LOADING_TEXT);				
 		}
