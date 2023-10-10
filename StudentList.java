@@ -10,12 +10,13 @@ public class StudentList {
 				
 				BufferedReader bufferReader = new BufferedReader(
 					new InputStreamReader(
-						new FileInputStream("students.txt"))); 
+						new FileInputStream(Constants.FILE_NAME))); 
 				singleline = bufferReader.readLine();
+				bufferReader.close();
 			
 			}else{
 				BufferedWriter s = new BufferedWriter(
-						new FileWriter("students.txt", true));
+						new FileWriter(Constants.FILE_NAME, true));
 
 				s.write(rw);
 				s.close();
@@ -34,17 +35,17 @@ public class StudentList {
 
 //		Check arguments
 		if(args[0].equals("a")) {
-			System.out.println("Loading data ...");					
+			System.out.println(Constants.LOADING_TXT);					
 				String singleline = bufferFunction("r");
 				String arrayOfString[] = singleline.split(",");			
 				for(String singleString : arrayOfString) { 
 					System.out.println(singleString); 
 				}
 			
-			System.out.println("Data Loaded.");
+			System.out.println(Constants.AFTER_LOADING_TEXT);
 		}
 		else if(args[0].equals("r")) {
-			System.out.println("Loading data ...");			
+			System.out.println(Constants.LOADING_TXT);			
 			 
 				String r = bufferFunction("r");
 				String i[] = r.split(",");
@@ -54,22 +55,22 @@ public class StudentList {
 				int y = x.nextInt(4);
 				System.out.println(i[y]);
 
-			System.out.println("Data Loaded.");			
+			System.out.println(Constants.AFTER_LOADING_TEXT);			
 		}
 		else if(args[0].contains("+")){
-			System.out.println("Loading data ...");			
+			System.out.println(Constants.LOADING_TXT);			
 
 				
 				String t = args[0].substring(1);
 				Date d = new Date();
-				String df = "dd/mm/yyyy-hh:mm:ss a";
+				String df = Constants.DATE_FORMAT;
 				DateFormat dateFormat = new SimpleDateFormat(df);
 				String fd= dateFormat.format(d);
-				bufferFunction(", "+t+"\nList last updated on "+fd);	
-			System.out.println("Data Loaded.");	
+				bufferFunction(", "+t+"\n"+Constants.LIST_UPDATE_TXT+fd);	
+			System.out.println(Constants.AFTER_LOADING_TEXT);	
 		}
 		else if(args[0].contains("?")) {
-			System.out.println("Loading data ...");			
+			System.out.println(Constants.LOADING_TXT);			
 			try {
 				 
 				String r = bufferFunction("r");
@@ -78,18 +79,18 @@ public class StudentList {
 				String t = args[0].substring(1);
 				for(int idx = 0; idx<i.length; idx++) {
 					if(i[idx].equals(t)) {
-						System.out.println("We found it!");
+						System.out.println(Constants.FOUND);
 						break;
 							// done=true;
 					}else{
-						System.out.println("Not found...please try again.. ");
+						System.out.println(Constants.NOT_FOUND);
 					}
 				}
 			} catch (Exception e){} 
-			System.out.println("Data Loaded.");				
+			System.out.println(Constants.AFTER_LOADING_TEXT);				
 		}
 		else if(args[0].contains("c")) {
-			System.out.println("Loading data ...");			
+			System.out.println(Constants.LOADING_TXT);			
 			try {
 				
 				String D = bufferFunction("r");
@@ -108,12 +109,12 @@ public class StudentList {
 						}			
 					}
 				}
-				System.out.println(count +" word(s) found " );
+				System.out.println(count +Constants.COUNT_TXT );
 			} catch (Exception e){} 
-			System.out.println("Data Loaded.");				
+			System.out.println(Constants.AFTER_LOADING_TEXT);				
 		}
 		else{
-			System.out.println("Wrong argument, please try again.."); 
+			System.out.println(Constants.WRONG_ARG_TXT); 
 
 		}
 	}
